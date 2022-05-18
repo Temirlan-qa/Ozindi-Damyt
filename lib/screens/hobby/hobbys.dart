@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'hobby_db.dart';
@@ -60,12 +61,13 @@ class _HobbysPageState extends State<HobbysPage> {
     return Scaffold(
       drawer: DrawerMenu(),
       appBar: AppBar(
+        backgroundColor: primaryColor,
         actions: [
           /*
           IconButton(icon: Icon(Icons.search), onPressed: () {})
           */
         ],
-        title: Text('Хобби'),
+        title: Text('Хобби',style: TextStyle(color: Colors.black),),
         elevation: 50,
         leading: Builder(
           builder: (context) => IconButton(

@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:ozindi_damyt/screens/podcast/podcast_card.dart';
 import 'package:ozindi_damyt/screens/podcast/podcastdb.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/widgets.dart';
 
@@ -62,11 +63,22 @@ class _CinemaPageState extends State<CinemaPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       drawer: DrawerMenu(),
       appBar: AppBar(
-        title: Text("Кинолар"),
+        backgroundColor: primaryColor,
+        title: Text("Кинолар",style: TextStyle(color: Colors.black),),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         actions: [
           /*
           IconButton(
@@ -109,6 +121,11 @@ class _CinemaPageState extends State<CinemaPage> {
   }
 
   Widget cinemaItem(BuildContext context, Cinema cinema) {
+    Size size = MediaQuery.of(context).size;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double text = MediaQuery.textScaleFactorOf(context);
+    print(width);
     return Container(
       child: GestureDetector(
         child: Column(
@@ -128,8 +145,7 @@ class _CinemaPageState extends State<CinemaPage> {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
                   cinema.photo,
-                  width: 100,
-                  height: 140,
+
                   fit: BoxFit.cover,
                 ),
               ),

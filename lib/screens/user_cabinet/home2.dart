@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'dart:math';
 
 import '../../main.dart';
@@ -9,8 +10,8 @@ class UserHome2 extends StatefulWidget {
 }
 
 class UserHome2State extends State<UserHome2> {
-
-  bool showAddPage = false;
+  final items = List<int>.generate(10, (i) => i + 1);
+  bool showAddPage = false;  var data= ["1","2"];
   @override
   Widget build(BuildContext context) {
 
@@ -24,7 +25,6 @@ class UserHome2State extends State<UserHome2> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         resizeToAvoidBottomInset:false,
-        resizeToAvoidBottomPadding:false,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(width/2),
           child: AppBar(
@@ -38,13 +38,38 @@ class UserHome2State extends State<UserHome2> {
             ),
           ),
         ),
-        body: SingleChildScrollView(
-          child:Column(
-          children: <Widget>[
-            bookItem(),
-            // quizItem(),
-            // sportItem()
-            ],
+        body:   Container(
+          child: ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Dismissible(
+                  background: Container(color: secondaryColor),
+
+                  key: Key(data[index]),
+                  child: bookItem(), secondaryBackground: Container(
+                  color: secondaryColor,
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Icon(
+                    Icons.delete,
+                    color: Colors.white,
+                  ),
+                ),
+                  onDismissed: (direction) {
+
+                    Scaffold
+                        .of(context)
+                        .showSnackBar(SnackBar(content: Text("Бұл бағыт жойылды")));
+
+                    setState(() {
+                      data.removeAt(index);
+                    });
+
+
+                  },
+                );
+
+              }
           ),
         ),
       ),
@@ -143,7 +168,7 @@ class UserHome2State extends State<UserHome2> {
             children: [
               Padding(
                   padding:
-                  const EdgeInsets.only(left: 20, bottom: 10),
+                  const EdgeInsets.only(left: 20, bottom: 10,top: 10),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(7.0),
                       child: Image.network(

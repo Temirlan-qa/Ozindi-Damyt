@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -45,7 +46,7 @@ class MarafonState extends State<Marafon > {
             TableCalendar(
               initialCalendarFormat: CalendarFormat.month,
               calendarStyle: CalendarStyle(
-                  todayColor: Colors.red,
+                  todayColor: secondaryColor,
                   selectedColor: Theme.of(context).primaryColor,
                   todayStyle: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -69,7 +70,7 @@ class MarafonState extends State<Marafon > {
                     alignment: Alignment.center,
 
                     decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: secondaryColor,
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       date.day.toString(),
@@ -80,7 +81,7 @@ class MarafonState extends State<Marafon > {
                     alignment: Alignment.center,
 
                     decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: secondaryColor,
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Text(
                       date.day.toString(),
@@ -136,7 +137,7 @@ class SecondRoute extends StatelessWidget {
                 color: Colors.white,
                 elevation: 10.0,
                 borderRadius: BorderRadius.circular(24.0),
-                shadowColor: Colors.red,
+                shadowColor: secondaryColor,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
@@ -163,13 +164,13 @@ class SecondRoute extends StatelessWidget {
                               ],
                               belowBarData: BarAreaData(
                                 show: true,
-                                colors: [Colors.red.withOpacity(0.8)],
+                                colors: [secondaryColor.withOpacity(0.8)],
                                 cutOffY: cutOffYValue,
                                 applyCutOffY: true,
                               ),
                               aboveBarData: BarAreaData(
                                 show: true,
-                                colors: [Colors.red.withOpacity(0.6)],
+                                colors: [secondaryColor.withOpacity(0.6)],
                                 cutOffY: cutOffYValue,
                                 applyCutOffY: true,
                               ),

@@ -11,9 +11,9 @@ import 'package:like_button/like_button.dart';
 import 'dart:ui';
 
 import 'angime.dart';
-import 'angime_about.dart';
+import 'angime_about2.dart';
 
-
+// Қолданылып жатқан код
 
 class GibrattyAngimeMain extends StatefulWidget {
   @override
@@ -77,18 +77,18 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
                 "Ғибратты әңгімелер",
                 style: TextStyle(color: Colors.black,fontSize: width/20),
               ),
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                  tooltip: 'search',
-                  onPressed: () {
-                    // showSearch(context: context, delegate: DataSearch());
-                  },
-                ),
-              ],
+              // actions: <Widget>[
+              //   IconButton(
+              //     icon: Icon(
+              //       Icons.search,
+              //       color: Colors.black,
+              //     ),
+              //     tooltip: 'search',
+              //     onPressed: () {
+              //       // showSearch(context: context, delegate: DataSearch());
+              //     },
+              //   ),
+              // ],
               //<Widget>[]
               backgroundColor: Colors.white,
               elevation: 50.0,
@@ -130,6 +130,9 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
         child: SizedBox(
           height: width / 3.5,
           child: InkWell(
+            onTap: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context) =>Angime_about(angime: angime)),);
+            },
             child: Column(
               children: [
                 Row(
@@ -161,7 +164,7 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
                                   padding: const EdgeInsets.only(top: 5),
                                   child: Icon(
                                     Icons.star,
-                                    color: Colors.red,
+                                    color: secondaryColor,
                                     size: 20,
                                   ),
                                 ),
@@ -186,9 +189,7 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Angime_about(angime: angime)),
+                                    MaterialPageRoute(builder: (context) =>Angime_about(angime: angime)),
                                   );
                                 }), //Ic
 

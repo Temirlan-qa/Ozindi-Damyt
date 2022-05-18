@@ -6,9 +6,10 @@ import 'package:ozindi_damyt/screens/kitapkhana/book.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:ozindi_damyt/screens/kitapkhana/qazaqsha-kitaptar.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 
 import 'bir-kitap-about.dart';
-import 'book-of-month-widget2.dart';
+import 'book-of-month-widget.dart';
 
 class LibraryPage extends StatefulWidget {
 
@@ -130,11 +131,11 @@ class _LibraryPageState extends State<LibraryPage> {
             appBar: AppBar(
               title: Text("Кітапхана", style: TextStyle(color: Colors.black),),
               actions: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.search, color: Colors.black,),
-                  tooltip: 'search',
-                  onPressed: () {},
-                ), //IconButton
+                // IconButton(
+                //   icon: Icon(Icons.search, color: Colors.black,),
+                //   tooltip: 'search',
+                //   onPressed: () {},
+                // ), //IconButton
                 IconButton(
                     icon: Icon(Icons.tune, color: Colors.black,),
                     tooltip: 'tune Icon',
@@ -158,25 +159,25 @@ class _LibraryPageState extends State<LibraryPage> {
             ),
 
             body: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20, bottom: 10, left: 20, right: 20),
-                            child: BookOfMonthWidget(),
-                          ),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 20, bottom: 10, left: 20, right: 20),
+                    child: BookOfMonthWidget(),
+                  ),
 
-                          Expanded(child:
-                          ListView(
-                              children: <Widget>[
-                                bookTypeText(context, "Жаңа кітаптар"),
-                                Container(height: 200, child: bookList(context, _bookListNew)),
-                                bookTypeText(context, "Ұсынылған"),
-                                Container(height: 200, child: bookList(context, _bookListMostReaded)),
-                                bookTypeText(context, "Көп оқылған"),
-                                Container(height: 200, child: bookList(context, _bookListRecommended)),
-                              ])
-                          )
-                        ])
+                  Expanded(child:
+                  ListView(
+                      children: <Widget>[
+                        bookTypeText(context, "Жаңа кітаптар"),
+                        Container(height: 200, child: bookList(context, _bookListNew)),
+                        bookTypeText(context, "Ұсынылған"),
+                        Container(height: 200, child: bookList(context, _bookListMostReaded)),
+                        bookTypeText(context, "Көп оқылған"),
+                        Container(height: 200, child: bookList(context, _bookListRecommended)),
+                      ])
+                  )
+                ])
         ));
   }
 
@@ -243,66 +244,66 @@ class _LibraryPageState extends State<LibraryPage> {
           width: width/5,
           height: width/5,
           child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
 
-                RaisedButton(
-                  color: Colors.red,
-                  hoverColor: Colors.red,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  child: SizedBox(
-                    height: width/7,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Column(
-                        children: [
-                          const Text('Қазақша ', style: TextStyle(fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),),
-                          const Text('кітаптар', style: TextStyle(fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),),
-                        ],
-                      ),
+              RaisedButton(
+                color: secondaryColor,
+                hoverColor: secondaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: SizedBox(
+                  height: width/7,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Column(
+                      children: [
+                        const Text('Қазақша ', style: TextStyle(fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),),
+                        const Text('кітаптар', style: TextStyle(fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),),
+                      ],
                     ),
                   ),
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (
-                        context) => FilterByLanguageKitaptar(kitapLanguage: "kz")));
-                  },
                 ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (
+                      context) => FilterByLanguageKitaptar(kitapLanguage: "kz")));
+                },
+              ),
 
 
 
-               RaisedButton(
-                  color: Colors.red,
-                  hoverColor: Colors.red,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  child: SizedBox(
-                    height: width/7,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Column(
-                        children: [
-                          const Text('Орысша ', style: TextStyle(fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),),
-                          const Text('кітаптар', style: TextStyle(fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),),
-                        ],
-                      ),
+              RaisedButton(
+                color: secondaryColor,
+                hoverColor: secondaryColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                child: SizedBox(
+                  height: width/7,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Column(
+                      children: [
+                        const Text('Орысша ', style: TextStyle(fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),),
+                        const Text('кітаптар', style: TextStyle(fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),),
+                      ],
                     ),
                   ),
-
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (
-                        context) => FilterByLanguageKitaptar(kitapLanguage: "rus",)));
-                  },
                 ),
+
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (
+                      context) => FilterByLanguageKitaptar(kitapLanguage: "rus",)));
+                },
+              ),
 
             ],
           ),
@@ -327,13 +328,13 @@ class _LibraryPageState extends State<LibraryPage> {
                     )
                   ]),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: FadeInImage.assetNetwork(
-                      placeholder: 'images/book-cover.png',
-                        width: 100,
-                        height: 140,
-                      image:book.photo
-                    )
+                      borderRadius: BorderRadius.circular(10),
+                      child: FadeInImage.assetNetwork(
+                          placeholder: 'images/book-cover.png',
+                          width: 100,
+                          height: 140,
+                          image:book.photo
+                      )
                     /*
                     child: Image.network(
                       book.photo,

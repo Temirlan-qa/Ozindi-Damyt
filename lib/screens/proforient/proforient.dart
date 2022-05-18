@@ -1,6 +1,7 @@
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'dart:ui';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,11 +21,20 @@ class _ProfOrientState extends State<ProfOrient> {
     print(width);
     return Scaffold(
         appBar: AppBar(
+          
           title: Text(
             "Профориентация",
             style: TextStyle(color: Colors.black),
           ),
-
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
+          ),
           actions: <Widget>[
 
             /*
@@ -40,7 +50,7 @@ class _ProfOrientState extends State<ProfOrient> {
 
              */
           ], //<Widget>[]
-          backgroundColor: Colors.white,
+          backgroundColor: primaryColor,
           elevation: 50.0,
         ),
         drawer: DrawerMenu(),
@@ -68,9 +78,11 @@ class _ProfOrientState extends State<ProfOrient> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: width / 15)),
                         ),
-                        Image.network(
-                          'https://image.jimcdn.com/app/cms/image/transf/dimension=321x1024:format=jpg/path/sd99b7a7213d94bcf/image/iffa1d2769d6c0cb9/version/1583683614/image.jpg',
-                        ),
+                        //image.jpg
+                        Image.asset('images/image.jpg'),
+                        // Image.network(
+                        //   'https://image.jimcdn.com/app/cms/image/transf/dimension=321x1024:format=jpg/path/sd99b7a7213d94bcf/image/iffa1d2769d6c0cb9/version/1583683614/image.jpg',
+                        // ),
                       ],
                     ),
                     textColor: Colors.black,
@@ -111,8 +123,7 @@ class _ProfOrientState extends State<ProfOrient> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: width / 16)),
                         ),
-                        Image.network('https://instagram.fala3-1.fna.fbcdn.net/v/t51.2885-19/s320x320/117625513_1531529500360705_611970714836922198_n.jpg?_nc_ht=instagram.fala3-1.fna.fbcdn.net&_nc_ohc=78UrgSbPBUwAX-9DYjk&tp=1&oh=bb89e4d947a70121ce05a62d98b7b1c0&oe=6050A9AD'
-                        ),
+                        Image.asset('images/image 55.png'),
                       ],
                     ),
                     textColor: Colors.black,

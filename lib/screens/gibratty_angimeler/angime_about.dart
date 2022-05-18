@@ -7,6 +7,7 @@ import 'package:ozindi_damyt/screens/gibratty_angimeler/angime.dart';
 import 'package:like_button/like_button.dart';
 import 'dart:ui';
 import 'angime.dart';
+// Қолданбай жатқан код
 
 class Angime_about extends StatelessWidget {
   final Angime angime;
@@ -59,56 +60,52 @@ class Angime_about extends StatelessWidget {
                         },
                       ),
                     )),
-                Padding(
-                  padding: const EdgeInsets.only(top: 60),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      LikeButton(
-                        size:width/5,
-                        circleColor:
-                        CircleColor(start: Colors.redAccent, end: Colors.red[600]),
-                        bubblesColor: BubblesColor(
-                          dotPrimaryColor: Colors.pink,
-                          dotSecondaryColor: Colors.red,
-                        ),
-                        likeBuilder: (bool isLiked) {
-                          return Icon(
-                              Icons.favorite,
-                              color: isLiked ? Colors.red : Colors.grey,
-                              size: width/8
-                          );
-                        },
-
-
-
-                      ),
-                    ],
-                  ),
-                ),
+            
               ],
             ),
 
-            Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 215),
-                  child: ListView(children: [
-                    Padding(
-                      padding:
-                      const EdgeInsets.only(left: 20.0, right: 20, bottom: 15),
-                      child: Text(
-                        angime.desc,
-                        style: TextStyle(fontSize: width/25),
-                      ),
-                    )
-                  ]),
-                )),
-
-
-
-
-
-
-
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12),
+                  topRight: Radius.circular(12),
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.6),
+                    spreadRadius: 8,
+                    blurRadius: 6,
+                    offset: Offset(0,4),
+                  ),
+                ],
+              ),
+              child: Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 205),
+                    child: ListView(children: [
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(left: 20.0, right: 20, bottom: 15),
+                        child: Column(
+                          children: [
+                            Text(
+                              angime.title,
+                              style: TextStyle(fontSize: width/20,),
+                            ),
+                            Divider(),
+                            Text(
+                              angime.desc,
+                              style: TextStyle(fontSize: width/25),
+                            ),
+                          ],
+                        ),
+                      )
+                    ]),
+                  )),
+            ),
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'firebase_user.dart';
 
 class AuthService{

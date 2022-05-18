@@ -5,6 +5,7 @@ import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/screens/quiz/quiz_db.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class QuizPage extends StatefulWidget {
@@ -60,12 +61,22 @@ class _QuizPageState extends State<QuizPage> {
     return Scaffold(
       drawer: DrawerMenu(),
       appBar: AppBar(
+        backgroundColor: primaryColor,
         actions: [
           /*
           IconButton(icon: Icon(Icons.search), onPressed: () {})
         */
         ],
-        title: Text('Quizziz'),
+        title: Text('Quiz',style: TextStyle(color: Colors.black),),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
       ),
       body: ListView.builder(
           itemCount: _quizListNew.length,
@@ -108,7 +119,7 @@ class _QuizPageState extends State<QuizPage> {
                     Container(
                         margin: EdgeInsets.only(left: MediaQuery.of(context).size.width / 15),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           // crossAxisAlignment: CrossAxisAlignment.,
                           children: [
                             Container(
@@ -123,10 +134,10 @@ class _QuizPageState extends State<QuizPage> {
                                 ),
                               ),
                             ),
-                            Spacer(),
+                            // Spacer(),
                             Container(
                               child: RaisedButton(
-                                color: Colors.red,
+                                color: secondaryColor,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18)),
                                 child: Text(

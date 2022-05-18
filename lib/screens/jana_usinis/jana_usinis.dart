@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'dart:ui';
 import 'dart:math';
 import 'package:url_launcher/url_launcher.dart';
@@ -37,17 +38,27 @@ class _JanaUsinisState extends State<JanaUsinis> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: DrawerMenu(),
-      appBar: AppBar(
-        actions: [
-          /*
+    return Scaffold(resizeToAvoidBottomInset: false,
+        drawer: DrawerMenu(),
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          actions: [
+            /*
           IconButton(icon: Icon(Icons.search), onPressed: () {})
         */
-        ],
-        title: Text('Жаңа ұсыныстар'),
-      ),
-      body: MyForm()
+          ],
+          title: Text('Жаңа ұсыныстар',style: TextStyle(color: Colors.black),),
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
+          ),
+        ),
+        body: MyForm()
     );
   }
 }
@@ -64,6 +75,15 @@ class MyFormState extends State<MyForm> {
 
   @override
   Widget build(BuildContext context) {
+
+    Size size = MediaQuery.of(context).size;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double text = MediaQuery.textScaleFactorOf(context);
+    print(width);
+
+
+
     // Build a Form widget using the _formKey created above.
     return Form(
       key: _formKey,
@@ -73,16 +93,16 @@ class MyFormState extends State<MyForm> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Осы проектке байланысты жаңа  ',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+              'Осы проектке байланысты  ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: width/18),
             ),
             Text(
-              ' ұсыныстарыңыз болса!',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
+              ' жаңа ұсыныстарыңыз болса!',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: width/19),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 35),
-              child: _input()
+                padding: const EdgeInsets.only(top: 35),
+                child: _input()
             ),
             Padding(
               padding: const EdgeInsets.all(35.0),
@@ -90,8 +110,8 @@ class MyFormState extends State<MyForm> {
                 height: 40,
                 width: 150,
                 child: RaisedButton(
-                  color: Colors.red,
-                  hoverColor: Colors.red,
+                  color: secondaryColor,
+                  hoverColor: secondaryColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                   child: const Text(
@@ -126,13 +146,13 @@ class MyFormState extends State<MyForm> {
         obscureText: false,
         style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         decoration: InputDecoration(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blueAccent, width: 3)
-            ),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blueAccent, width: 1)
-            ),
+          hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blueAccent, width: 3)
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blueAccent, width: 1)
+          ),
         ),
       ),
     );

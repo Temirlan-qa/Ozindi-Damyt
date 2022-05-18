@@ -69,8 +69,18 @@ class _Suraq_userState extends State<Suraq_user> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+        floatingActionButton: FloatingActionButton(    
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          backgroundColor: Colors.redAccent,
+          onPressed: (){
+            
+          },      
+        ),
         appBar: AppBar(
-
           title: Row(
             children: [
               IconButton(
@@ -87,29 +97,30 @@ class _Suraq_userState extends State<Suraq_user> {
                   )),
             ],
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(
-                Icons.trending_up_rounded,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SecondRoute()),
-                );
-              },
-            ), //IconButton
-            //IconButton
-          ], //<Widget>[]
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: Icon(
+          //       Icons.trending_up_rounded,
+          //       color: Colors.black,
+          //     ),
+          //     onPressed: () {
+          //       Navigator.push(
+          //         context,
+          //         MaterialPageRoute(builder: (context) => SecondRoute()),
+          //       );
+          //     },
+          //   ), //IconButton
+          //   //IconButton
+          // ], //<Widget>[]
           backgroundColor: Colors.white,
           elevation: 50.0,
           //IconButton
         ),
         body: Stack(
-          children: [
+          children: [            
             ListView(
               children: <Widget>[
+                
                 Card(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -190,6 +201,7 @@ class _Suraq_userState extends State<Suraq_user> {
                     ),
                   ),
                 ),
+                
                 Card(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
@@ -270,6 +282,7 @@ class _Suraq_userState extends State<Suraq_user> {
                     ),
                   ),
                 ),
+              
               ],
             ),
           ],

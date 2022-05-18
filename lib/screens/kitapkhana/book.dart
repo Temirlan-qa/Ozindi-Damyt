@@ -9,8 +9,9 @@ class Book{
   int page_number;
   String rating;
   String photo;
+  String date;
 
-  Book({this.name, this.author, this.desc, this.url, this.page_number, this.rating, this.photo});
+  Book({this.name, this.author, this.desc, this.url, this.page_number, this.rating, this.photo, this.date});
 
   Book.fromSnapshot(DataSnapshot snapshot) :
         key = snapshot.key,
@@ -20,6 +21,13 @@ class Book{
         url = snapshot.value["url"],
         page_number = snapshot.value["page_number"],
         rating = snapshot.value["rating"],
+        photo = snapshot.value["photo"];
+
+  Book.fromFinishedBooks(DataSnapshot snapshot) :
+        key = snapshot.key,
+        name = snapshot.value["name"],
+        author = snapshot.value["author"],
+        date = snapshot.value["date"],
         photo = snapshot.value["photo"];
 
   toJson() {

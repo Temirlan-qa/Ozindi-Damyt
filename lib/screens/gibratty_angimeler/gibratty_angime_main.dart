@@ -6,6 +6,9 @@ import 'package:flutter/widgets.dart';
 import 'package:ozindi_damyt/screens/gibratty_angimeler/angime.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'dart:ui';
+import 'package:ozindi_damyt/screens/gibratty_angimeler/angime_about2.dart';
+
+// Қолданбай жатқан код
 
 class GibrattyAngimeMain extends StatefulWidget {
   @override
@@ -58,22 +61,23 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
             backgroundColor: Theme.of(context).primaryColor,
             drawer: DrawerMenu(),
             appBar: AppBar(
+              
               title: Text(
                 "Ғибратты әңгімелер",
                 style: TextStyle(color: Colors.black),
               ),
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.black,
-                  ),
-                  tooltip: 'search',
-                  onPressed: () {
-                    // showSearch(context: context, delegate: DataSearch());
-                  },
-                ),
-              ],
+              // actions: <Widget>[
+              //   IconButton(
+              //     icon: Icon(
+              //       Icons.search,
+              //       color: Colors.black,
+              //     ),
+              //     tooltip: 'search',
+              //     onPressed: () {
+              //       // showSearch(context: context, delegate: DataSearch());
+              //     },
+              //   ),
+              // ],
               //<Widget>[]
               backgroundColor: Colors.white,
               elevation: 50.0,
@@ -100,6 +104,9 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
       child: SizedBox(
         height: 100.0,
         child: InkWell(
+          onTap: (){
+
+          },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -136,7 +143,8 @@ class _GibrattyAngimeMainState extends State<GibrattyAngimeMain> {
                     size: 30,
                   ),
                   tooltip: 'оқу',
-                  onPressed: () {}),
+                  onPressed: () {}
+                ),
             ],
           ),
         ),

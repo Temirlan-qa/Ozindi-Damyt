@@ -5,6 +5,7 @@ import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/screens/sport/sport_db.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SportPage extends StatefulWidget {
@@ -60,12 +61,22 @@ class _SportPageState extends State<SportPage> {
     return Scaffold(
       drawer: DrawerMenu(),
       appBar: AppBar(
+        backgroundColor: primaryColor,
         actions: [
           /*
           IconButton(icon: Icon(Icons.search), onPressed: () {})
           */
         ],
-        title: Text('Спорт'),
+        title: Text('Спорт',style: TextStyle(color: Colors.black),),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
       ),
       body: ListView.builder(
           itemCount: _sportListNew.length,
@@ -76,6 +87,11 @@ class _SportPageState extends State<SportPage> {
   }
 
   Widget sportItem(BuildContext context, SportDb sportDb) {
+    Size size=MediaQuery.of(context).size;
+    double height=MediaQuery.of(context).size.height;
+    double width=MediaQuery.of(context).size.width;
+    double text=MediaQuery.textScaleFactorOf(context);
+    print(width);
     return Container(
       // height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
@@ -91,10 +107,10 @@ class _SportPageState extends State<SportPage> {
               }
             },
             child: Padding(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 10,right: 10,bottom: 5,top: 5),
               child: Container(
                 // width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 4,
+
                 child: Center(
                   child: Card(
                     elevation: 15,
@@ -117,7 +133,7 @@ class _SportPageState extends State<SportPage> {
                           ),
                         ),
                         child: Container(
-                            height: MediaQuery.of(context).size.height,
+                            height: width/3,
                             width: MediaQuery.of(context).size.width,
                             child: Padding(
                               padding: EdgeInsets.only(top: 6, left: 15),

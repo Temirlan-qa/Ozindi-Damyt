@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:ozindi_damyt/screens/podcast/podcast_card.dart';
 import 'package:ozindi_damyt/screens/podcast/podcastdb.dart';
+import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/widgets.dart';
 
@@ -66,7 +67,17 @@ class _PodcastPageState extends State<PodcastPage> {
       backgroundColor: Theme.of(context).primaryColor,
       drawer: DrawerMenu(),
       appBar: AppBar(
-        title: Text("Подкаст"),
+        backgroundColor: primaryColor,
+        title: Text("Подкаст",style: TextStyle(color: Colors.black),),
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
         actions: [
           /*
           IconButton(
