@@ -1,6 +1,6 @@
 # ozindi_damyt
 
-A new Flutter application.
+A new Flutter application. We use Firebase for auth_metods and database.  
 
 ## Getting Started
 
