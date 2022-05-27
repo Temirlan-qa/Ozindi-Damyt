@@ -1,4 +1,3 @@
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 
@@ -46,13 +45,11 @@ Future<void> main() async {
 //   }
 // }
 
-
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   @override
@@ -63,15 +60,21 @@ class MyApp extends StatelessWidget {
           create: (_) => AuthenticationProvider(FirebaseAuth.instance),
         ),
         StreamProvider(
-          create: (context) => context.read<AuthenticationProvider>().authState, initialData: null,
+          create: (context) => context.read<AuthenticationProvider>().authState,
+          initialData: null,
         )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'OzindiDamyt',
         theme: ThemeData(
-            primaryColor: Colors.white,
-            textTheme: TextTheme(headline6: TextStyle(color: Colors.black))),
+          primaryColor: Colors.white,
+          textTheme: TextTheme(
+            headline6: TextStyle(
+              color: Colors.black
+            ),
+          ),
+        ),
         home: Authenticate(),
       ),
     );

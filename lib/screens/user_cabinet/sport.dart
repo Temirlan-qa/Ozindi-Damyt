@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'dart:math';
 import 'package:icon_shadow/icon_shadow.dart';
 import 'package:ozindi_damyt/main.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/sport_form.dart';
 
 class SecondRoute extends StatelessWidget {
   @override
@@ -54,15 +55,19 @@ class _sport_user extends State<sport_user> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-        floatingActionButton: FloatingActionButton(    
+        floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.add,
             color: Colors.white,
           ),
           backgroundColor: Colors.redAccent,
-          onPressed: (){
-            
-          },      
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SportFormScreen()),
+            );
+            // SportFormScreen
+          },
         ),
         appBar: AppBar(
           leading: IconButton(
@@ -187,37 +192,38 @@ class _sport_user extends State<sport_user> {
                               ],
                             ),
                             Spacer(),
-                            Column(mainAxisAlignment: MainAxisAlignment.end,
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     children: [
                                       Container(
-                                        margin: EdgeInsets.only(left: 5),
-                                        child: Text(
-                                          '6340',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
-                                        )),
-                                        Container(
+                                          margin: EdgeInsets.only(left: 5),
+                                          child: Text(
+                                            '6340',
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.bold),
+                                          )),
+                                      Container(
                                           margin: EdgeInsets.only(left: 5),
                                           child: Text(
                                             'қадам',
                                             style: TextStyle(fontSize: 15),
-                                        )),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                          )),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
+                          ],
                         ),
                       ),
                     ),
                   ),
+                ),
               ],
             ),
           ],

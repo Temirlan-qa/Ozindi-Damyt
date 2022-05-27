@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/quiz_form.dart';
 
 class SecondRoute extends StatelessWidget {
   @override
@@ -77,7 +78,11 @@ class _Suraq_userState extends State<Suraq_user> {
           ),
           backgroundColor: Colors.redAccent,
           onPressed: (){
-            
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => QuizFormScreen()),
+            );
+            // QuizFormScreen
           },      
         ),
         appBar: AppBar(

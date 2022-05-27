@@ -26,16 +26,14 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
   void initState() {
     super.initState();
     Firebase.initializeApp();
-
   }
 
-  void authen(String _email,String _password, BuildContext context) async {
+  void authen(String _email, String _password, BuildContext context) async {
     setState(() {
       showLogin = false;
     });
 
     try {
-
       // UserCredential userCredential = context.read<AuthenticationProvider>().signIn(
       //   email: _email,
       //   password: _password,
@@ -46,14 +44,14 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
       //   password: _password,
       // );
 
-      UserCredential result = await auth.signInWithEmailAndPassword(email: _email, password: _password);
-      if(result != null) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (BuildContext context) {
+      UserCredential result = await auth.signInWithEmailAndPassword(
+          email: _email, password: _password);
+      if (result != null) {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (BuildContext context) {
           return LibraryPage();
         }));
       }
-
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showErrorToast('Қолданушы табылмады! Логинды басынан енгізіңіз');
@@ -61,7 +59,6 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
         setState(() {
           showLogin = true;
         });
-
       } else if (e.code == 'wrong-password') {
         showErrorToast('Құпия сөзі қате енгізілді');
         // print('Wrong password provided for that user.');
@@ -72,10 +69,9 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-    void _buttonAction(){
+    void _buttonAction() {
       _email = _emailController.text.trim();
       _password = _passwordController.text.trim();
 
@@ -83,108 +79,110 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
 
       // _emailController.clear();
       // _passwordController.clear();
-
     }
 
-    Widget _input(Icon icon, String hint, TextEditingController controller, bool obscure){
+    Widget _input(Icon icon, String hint, TextEditingController controller,
+        bool obscure) {
       return Container(
         padding: EdgeInsets.only(left: 10, right: 10),
         child: TextField(
           controller: controller,
           obscureText: obscure,
-          style: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 14, color: Colors.black, fontWeight: FontWeight.bold),
           decoration: InputDecoration(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.grey),
-            hintText: hint,
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: secondaryColor, width: 3)
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: secondaryColor, width: 1)
-            ),
-            prefixIcon: Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: IconTheme(
-                data: IconThemeData(color: Colors.black),
-                child: icon,
-              ),
-            )
-          ),
+              hintStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.grey),
+              hintText: hint,
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor, width: 3)),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor, width: 1)),
+              prefixIcon: Padding(
+                padding: EdgeInsets.only(left: 10, right: 10),
+                child: IconTheme(
+                  data: IconThemeData(color: Colors.black),
+                  child: icon,
+                ),
+              )),
         ),
       );
     }
 
-    Widget _logo(){
+    Widget _logo() {
       return Padding(
         padding: EdgeInsets.only(top: 30),
         child: Container(
           child: Align(
-            child: Image(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height/5,
-                image: AssetImage('images/od_icon.png'))),
-            // Text('Library', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold, color: Colors.black)),
-          ),
-        );
+              child: Image(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height / 5,
+                  image: AssetImage('images/od_icon.png'))),
+          // Text('Library', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold, color: Colors.black)),
+        ),
+      );
     }
 
-    Widget _button(String text, void func()){
+    Widget _button(String text, void func()) {
       return RaisedButton(
         splashColor: Theme.of(context).primaryColor,
         highlightColor: secondaryColor,
         color: secondaryColor,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: Text(
           text,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor, fontSize: 20),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).primaryColor,
+              fontSize: 20),
         ),
-        onPressed: (){
+        onPressed: () {
           func();
         },
       );
     }
 
-    Widget _progress(){
+    Widget _progress() {
       return RaisedButton(
-        onPressed: (){},
+        onPressed: () {},
         splashColor: Theme.of(context).primaryColor,
         highlightColor: secondaryColor,
         color: secondaryColor,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0)),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: new CircularProgressIndicator(backgroundColor: secondaryColor),
       );
     }
 
-    Widget _form(String label, void func()){
+    Widget _form(String label, void func()) {
       double width = MediaQuery.of(context).size.width;
       return Container(
-        child: SizedBox(width: width/1,
+        child: SizedBox(
+          width: width / 1,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                 padding: EdgeInsets.only(bottom: 20, top: 40),
-                child:_input(Icon(Icons.email), 'Email', _emailController, false),
+                child:
+                    _input(Icon(Icons.email), 'Email', _emailController, false),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 20),
-                child: _input(Icon(Icons.lock), 'Password', _passwordController, true),
+                child: _input(
+                    Icon(Icons.lock), 'Password', _passwordController, true),
               ),
               // SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(left: 10, right: 10, top: 20),
                 child: Container(
-                  height:width/6,
-                  width: width/1,
-                  child:
-                  (showLogin
-                      ? _button(label, func)
-                      : _progress()
-                  )
-                  ,
+                  height: width / 6,
+                  width: width / 1,
+                  child: (showLogin ? _button(label, func) : _progress()),
                 ),
               ),
             ],
@@ -193,38 +191,35 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
       );
     }
 
-
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      resizeToAvoidBottomInset:false,
+        backgroundColor: Theme.of(context).primaryColor,
+        resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
-                child: Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _logo(),
-                    Column(
-                      children: [
-                        _form('Логин', _buttonAction),
-                      ],
-                    )
-                  ],
-                  /*
+            child: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _logo(),
+              Column(
+                children: [
+                  _form('Логин', _buttonAction),
+                ],
+              )
+            ],
+            /*
 
 
                   */
-                ),
+          ),
         )));
   }
 
-  void showErrorToast(String text){
-
-    Toast.show(text,
-        context,
+  void showErrorToast(String text) {
+    Toast.show(text, context,
         duration: Toast.LENGTH_LONG,
         backgroundColor: secondaryColor,
-        gravity:  Toast.BOTTOM);
+        gravity: Toast.BOTTOM);
   }
 }
