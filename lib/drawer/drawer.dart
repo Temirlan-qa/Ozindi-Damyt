@@ -12,6 +12,10 @@ import 'package:ozindi_damyt/screens/podcast/podcasts.dart';
 import 'package:ozindi_damyt/screens/proforient/proforient.dart';
 import 'package:ozindi_damyt/screens/quiz/quiz.dart';
 import 'package:ozindi_damyt/screens/sport/sport.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/quiz_profile/quiz.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/quiz_profile/quiz_form.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/sport_profile/sport.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/sport_profile/sport_form.dart';
 import 'package:ozindi_damyt/screens/user_cabinet/user-cabinet.dart';
 import '../screens/kitapkhana/library.dart';
 import 'package:provider/provider.dart';
@@ -134,6 +138,26 @@ class _DrawerMenuState extends State<DrawerMenu> {
             CreateElements('Спорт', MaterialPageRoute(builder: (BuildContext context) => SportPage()), 'ic_sport_white.png'),
             CreateElements('Кино', MaterialPageRoute(builder: (BuildContext context) => CinemaPage()), 'kino.png'),
             CreateElements('Жаңа ұсыныстар', MaterialPageRoute(builder: (BuildContext context) => JanaUsinis()), 'feedback.png'),
+            // ListTile(
+            //   title: const Text(
+            //     'Спорт форма',
+            //     style: TextStyle(fontSize: 17, color: Colors.black),
+            //   ),
+            //   onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => SportScreen()),);
+            //   },
+            // ),
+            // ListTile(
+            //   title: const Text(
+            //     'Quiz форма',
+            //     style: TextStyle(fontSize: 17, color: Colors.black),
+            //   ),
+            //   onTap: (){
+            //     Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuizScreen()),);
+            //   },
+            // ),
+            // SportFormScreen(),
+            // QuizFormScreen(),
             ListTile(
               leading: Icon(
                 Icons.exit_to_app,

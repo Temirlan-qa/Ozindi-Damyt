@@ -1,6 +1,5 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -70,9 +69,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: Colors.white,
           textTheme: TextTheme(
-            headline6: TextStyle(
-              color: Colors.black
-            ),
+            headline6: TextStyle(color: Colors.black),
           ),
         ),
         home: Authenticate(),
