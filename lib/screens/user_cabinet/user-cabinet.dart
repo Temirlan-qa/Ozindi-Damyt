@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ozindi_damyt/screens/user_cabinet/question.dart';
-import 'package:ozindi_damyt/screens/user_cabinet/sport.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/quiz_profile/question_beta.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/quiz_profile/quiz.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/sport_profile/sport.dart';
+import 'package:ozindi_damyt/screens/user_cabinet/sport_profile/sport_beta.dart';
 import 'package:ozindi_damyt/screens/user_cabinet/user-books.dart';
 import 'package:ozindi_damyt/utils/colors.dart';
 import 'home.dart';
@@ -18,8 +20,9 @@ class _UserCabinetState extends State<UserCabinet> {
     UserHome2(),
     UserBooks(),  
     Marafon(),
-    sport_user(),
-    Suraq_user(),
+    SportScreen(),
+    // sport_user(),
+    QuizScreen(),
   ];
   void _onItemTap(int index) {
     setState(() {

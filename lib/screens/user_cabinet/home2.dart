@@ -116,7 +116,7 @@ class UserHome2State extends State<UserHome2> {
                   children: <Widget>[
 
                     Text(
-                      'Dostyq User',
+                      'JIHC User',
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
@@ -128,7 +128,7 @@ class UserHome2State extends State<UserHome2> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0),
                       child: Text(
-                        'Атырау Достық',
+                        'JIHC 3I',
                         style: TextStyle(color: Colors.black),
                       ),
                     ),

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,9 +6,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
 import 'marathon_db.dart';
 
+// Қолданылмай жатқан код
 class MarathonPage extends StatefulWidget {
   final String dbName;
   const MarathonPage({Key key, this.dbName}) : super(key: key);

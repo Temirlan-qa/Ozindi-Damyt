@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:ozindi_damyt/drawer/drawer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -7,9 +6,9 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:ozindi_damyt/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-
 import 'marathon_db.dart';
 
+// Қолданып жатқан код
 class MarathonPage extends StatefulWidget {
   final String dbName;
   const MarathonPage({Key key, this.dbName}) : super(key: key);
@@ -61,7 +60,6 @@ class _MarathonPageState extends State<MarathonPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       drawer: DrawerMenu(),
       appBar: AppBar(
@@ -80,21 +78,25 @@ class _MarathonPageState extends State<MarathonPage> {
           IconButton(icon: Icon(Icons.search), onPressed: () {})
           */
         ],
-        title: Text('Марафон',style: TextStyle(color: Colors.black),),
+        title: Text(
+          'Марафон',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: ListView.builder(
-          itemCount: _marathonListNew.length,
-          itemBuilder: (context, i) {
-            return marathonItem(context, _marathonListNew[i]);
-          }),
+        itemCount: _marathonListNew.length,
+        itemBuilder: (context, i) {
+          return marathonItem(context, _marathonListNew[i]);
+        }
+      ),
     );
   }
 
   Widget marathonItem(BuildContext context, MarathonDb marathonDb) {
-    Size size=MediaQuery.of(context).size;
-    double height=MediaQuery.of(context).size.height;
-    double width=MediaQuery.of(context).size.width;
-    double text=MediaQuery.textScaleFactorOf(context);
+    Size size = MediaQuery.of(context).size;
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    double text = MediaQuery.textScaleFactorOf(context);
     print(width);
     return Column(
       children: [
@@ -111,7 +113,7 @@ class _MarathonPageState extends State<MarathonPage> {
             padding: EdgeInsets.all(10),
             child: Container(
               width: MediaQuery.of(context).size.width * 100,
-              height: width/3,
+              height: width / 3,
               child: Center(
                 child: Card(
                   elevation: 15,
@@ -136,20 +138,17 @@ class _MarathonPageState extends State<MarathonPage> {
                         child: Padding(
                           padding: EdgeInsets.only(top: 6, left: 15),
                           child: Container(
-                            margin:
-                                EdgeInsets.only(top: 5, left: 5, bottom: 5),
+                            margin: EdgeInsets.only(top: 5, left: 5, bottom: 5),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Container(
-                                  padding:
-                                      EdgeInsets.only(bottom: 3, left: 3),
+                                  padding: EdgeInsets.only(bottom: 3, left: 3),
                                   child: Text(
                                     marathonDb.title,
                                     style: TextStyle(
-                                      fontSize: width/25,
+                                      fontSize: width / 25,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'Comfortaa',
                                       color: Colors.white,
@@ -157,8 +156,7 @@ class _MarathonPageState extends State<MarathonPage> {
                                   ),
                                 ),
                                 Container(
-                                  padding:
-                                      EdgeInsets.only(left: 3),
+                                  padding: EdgeInsets.only(left: 3),
                                   // width: MediaQuery.of(context).size.width,
                                   child: Text(
                                     marathonDb.desc,
@@ -176,7 +174,7 @@ class _MarathonPageState extends State<MarathonPage> {
                                       child: Icon(
                                         Icons.date_range_outlined,
                                         color: Colors.white,
-                                        size: width/18,
+                                        size: width / 18,
                                       ),
                                     ),
                                     Text(
@@ -192,8 +190,8 @@ class _MarathonPageState extends State<MarathonPage> {
                                       padding: EdgeInsets.only(right: 3),
                                       child: Image.asset(
                                         'images/present.png',
-                                        width: width/18,
-                                        height:width/18,
+                                        width: width / 18,
+                                        height: width / 18,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -204,11 +202,9 @@ class _MarathonPageState extends State<MarathonPage> {
                                         overflow: TextOverflow.ellipsis,
                                         maxLines: 2,
                                         style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12),
+                                            color: Colors.white, fontSize: 12),
                                       ),
                                     ),
-                                
                                   ],
                                 ),
                               ],

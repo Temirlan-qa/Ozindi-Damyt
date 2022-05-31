@@ -67,7 +67,10 @@ class _QuizPageState extends State<QuizPage> {
           IconButton(icon: Icon(Icons.search), onPressed: () {})
         */
         ],
-        title: Text('Quiz',style: TextStyle(color: Colors.black),),
+        title: Text(
+          'Quiz',
+          style: TextStyle(color: Colors.black),
+        ),
         leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(
@@ -117,54 +120,54 @@ class _QuizPageState extends State<QuizPage> {
                       ),
                     ),
                     Container(
-                        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width / 15),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          // crossAxisAlignment: CrossAxisAlignment.,
-                          children: [
-                            Container(
-                              child: Flexible(
-                                flex: 2,
-                                child: Text(
-                                  quizDb.title,
-                                  maxLines: 2,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                      margin: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width / 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        // crossAxisAlignment: CrossAxisAlignment.,
+                        children: [
+                          Container(
+                            child: Flexible(
+                              flex: 2,
+                              child: Text(
+                                quizDb.title,
+                                maxLines: 2,
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
                               ),
                             ),
-                            // Spacer(),
-                            Container(
-                              child: RaisedButton(
-                                color: secondaryColor,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18)),
-                                child: Text(
-                                  'Тестті тапсыру',
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 17),
-                                ),
-                                onPressed: () async {
-                                  final url = quizDb.link;
-                                  if (await canLaunch(url)) {
-                                    await launch(url);
-                                  } else {
-                                    throw 'Could not launch $url';
-                                  }
-                                },
+                          ),
+                          // Spacer(),
+                          Container(
+                            child: RaisedButton(
+                              color: secondaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18)),
+                              child: Text(
+                                'Тестті тапсыру',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 17),
                               ),
+                              onPressed: () async {
+                                final url = quizDb.link;
+                                if (await canLaunch(url)) {
+                                  await launch(url);
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
+                              },
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
+                    ),
                   ],
+                ),
               ),
             ),
           ),
         ),
       ),
-    )
     );
   }
 }
